@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.11.1.js"></script>
+</head>
+<style>
+	*{
+	  margin:0;
+	  padding:0;
+	  list-style: none;
+	  text-decoration: none;
+	}
+	ul{
+		width:300px;
+		height:500px;
+		float: left;
+		margin:20px;
+	}
+	li{
+		width:300px;
+		height:150px;
+		text-align: center;
+		font-size: 20px;
+		color:black;
+		border:1px solid red;
+	}
+	.text{
+		position:absolute;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+		background: black;
+		display: none;
+	}
+	.text>p{
+		font-size:30px;
+		color:white;
+		padding:20px; 
+	}
+	.closebtn{
+		width:50px;
+		height:50px;
+		background: red;
+	}
+</style>
+<body>
+    <div class="text">    	
+    	<p></p>
+    	<p></p>
+    	<p></p>
+    	<div class="closebtn">关闭按钮</div>
+    </div>
+	<ul>
+		<li>AA</li>
+		<li>BB</li>
+		<li>CC</li>
+	</ul>
+	<ul>
+		<li>AAA</li>
+		<li>BBA</li>
+		<li>CCC</li>
+	</ul>
+	<ul>
+		<li>AAAA</li>
+		<li>BBBB</li>
+		<li>CCCC</li>
+	</ul>
+	<ul>
+		<li>AAAAA</li>
+		<li>BBBBB</li>
+		<li>CCCCC</li>
+	</ul>
+	<script>
+		var one=["0","功能1","功能2","功能3","功能A"];
+		var two=["0","名字1","名字2","名字3","名字4"];
+		var three=["0","C2C","C3CC","C4CCC","CCCCC"];
+		$("ul").on("click",function(){
+            var index=$(this).index();          
+            $("ul").hide();
+            $(".text").show();
+            $(".text>p:nth-child(1)").text(one[index]);
+            $(".text>p:nth-child(2)").text(two[index]);
+            $(".text>p:nth-child(3)").text(three[index]);
+            console.log(index);
+		})
+		$(".closebtn").on("click",function(){
+			$("ul").show();
+            $(".text").hide();
+		})
+	</script>
+</body>
+</html>
